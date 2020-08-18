@@ -4,6 +4,9 @@
 // output: ['is', 'a', 'split', 'sentence.', 'This']
 
 function rearranger(arr) {
+  arr.push(arr.shift())
+  return arr
+
 }
 
 
@@ -16,6 +19,16 @@ function rearranger(arr) {
 // output: 42
 
 function largestNum(arr) {
+  let biggestNum = 0
+
+  for (i = 0; i < arr.length; i++) {
+    let number = arr[i]
+    if (number > biggestNum) {
+      biggestNum = number
+    }
+  }
+
+  return biggestNum
 }
 
 
@@ -28,6 +41,13 @@ function largestNum(arr) {
 // output: [16, 8, 4, 28]
 
 function elemsTimesLength(arr) {
+  let newArr = []
+
+  for (i = 0; i < arr.length; i++) {
+    newArr.push(arr[i] * arr.length)
+  }
+
+  return newArr
 }
 
 
@@ -41,7 +61,11 @@ function elemsTimesLength(arr) {
 // Primitive data types - https://developer.mozilla.org/en-US/docs/Glossary/Primitive
 
 function arrayFlattener(arr) {
-
+  let newArr = []
+  for (let i = 0; i < arr.length; i++) {
+    newArr = newArr.concat(arr[i])
+  }
+  return newArr
 }
 
 
@@ -51,32 +75,39 @@ function arrayFlattener(arr) {
 //5. Flights from Boise. Write a function that will use the following data to return the cost of flights from boise to a neighboring city, by default return the standard cost unless firstClass is set to true
 
 let flights = [{
-    from: 'BOI',
-    to: 'LAX',
-    prices: {
-        standard: 500,
-        firstClass: 2200
-    }
+  from: 'BOI',
+  to: 'LAX',
+  prices: {
+    standard: 500,
+    firstClass: 2200
+  }
 }, {
-    from: 'BOI',
-    to: 'SEA',
-    prices: {
-        standard: 800,
-        firstClass: 1200
-    }
+  from: 'BOI',
+  to: 'SEA',
+  prices: {
+    standard: 800,
+    firstClass: 1200
+  }
 }, {
-    from: 'BOI',
-    to: 'CAN',
-    prices: {
-        standard: 750,
-        firstClass: 6200
-    }
+  from: 'BOI',
+  to: 'CAN',
+  prices: {
+    standard: 750,
+    firstClass: 6200
+  }
 }]
 
 
 function flightCost(destination, firstClass) {
-    //***hint: use the find method***
-
+  for (i = 0; i < flights.length; i++) {
+    let flight = flights[i]
+    if (destination.toUpperCase() == flight.to) {
+      if (firstClass) {
+        return flight.prices.firstClass
+      }
+      return flight.prices.standard
+    }
+  }
 }
 
 
@@ -110,17 +141,17 @@ function findById(id) {
 // output: "Johnny P is in the band and plays the sax"
 
 let theBand = {
-    homeCity: "Birmingham",
-    members: [{
-        name: 'Johnny P',
-        instrument: 'sax'
-    }, {
-        name: 'River',
-        instrument: 'drums'
-    }, {
-        name: 'Kris',
-        instrument: 'guitar'
-    }]
+  homeCity: "Birmingham",
+  members: [{
+    name: 'Johnny P',
+    instrument: 'sax'
+  }, {
+    name: 'River',
+    instrument: 'drums'
+  }, {
+    name: 'Kris',
+    instrument: 'guitar'
+  }]
 }
 
 function bandMemberDetails(name) {
