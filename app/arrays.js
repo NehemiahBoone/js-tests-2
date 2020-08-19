@@ -6,7 +6,6 @@
 function rearranger(arr) {
   arr.push(arr.shift())
   return arr
-
 }
 
 
@@ -19,16 +18,16 @@ function rearranger(arr) {
 // output: 42
 
 function largestNum(arr) {
-  let biggestNum = 0
+  let largestNum = 0
 
   for (i = 0; i < arr.length; i++) {
     let number = arr[i]
-    if (number > biggestNum) {
-      biggestNum = number
+    if (number > largestNum) {
+      largestNum = number
     }
   }
 
-  return biggestNum
+  return largestNum
 }
 
 
@@ -46,7 +45,6 @@ function elemsTimesLength(arr) {
   for (i = 0; i < arr.length; i++) {
     newArr.push(arr[i] * arr.length)
   }
-
   return newArr
 }
 
